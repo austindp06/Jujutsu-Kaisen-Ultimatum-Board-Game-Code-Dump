@@ -1057,6 +1057,96 @@ sorcerer_data: Dict[str, Dict] = {
             }
         }
     },
+    "Naoya": {
+            "hp": 100,
+            "move_points": 2,
+            "attack_points": 3,
+            "dodge_requirement": "4+",
+            "grades": {
+                "G4": {
+                    "ce_max": 125,
+                    "ce_regen": 50,
+                    "attacks": {"Hailstorm": 20},
+                    "perks": ["Duelist Strike"]
+                },
+                "G3": {
+                    "ce_max": 150,
+                    "ce_regen": 60,
+                    "additions": [
+                        {"attacks": {}, "perks": ["Shadow Steps"]},
+                        {"attacks": {}, "perks": ["Momentum"]}
+                    ]
+                },
+                "G2": {
+                    "ce_max": 200,
+                    "ce_regen": 70,
+                    "additions": [
+                        {"attacks": {}, "perks": ["Warm Up"]},
+                        {"attacks": {"Counterstrike": 70}, "perks": ["Crippling Blow"]}
+                    ]
+                },
+                "G1": {
+                    "ce_max": 250,
+                    "ce_regen": 85,
+                    "additions": [
+                        {"attacks": {"Charge Up": 100}, "perks": []},
+                        {"attacks": {}, "perks": ["Immediate Entry"]}
+                    ]
+                },
+                "SG": {
+                    "ce_max": 300,
+                    "ce_regen": 100,
+                    "additions": [
+                        {"attacks": {"Paused Strike": 200}, "perks": []}
+                    ]
+                }
+            }
+        },
+    "Naobito": { #WORK ON HEAD OF THE ZENIN CLANNNNNNNNNNNNNNNNN
+            "hp": 100,
+            "move_points": 2,
+            "attack_points": 3,
+            "dodge_requirement": "4+",
+            "grades": {
+                "G4": {
+                    "ce_max": 125,
+                    "ce_regen": 50,
+                    "attacks": {"Frame Rush": 35},
+                    "perks": ["Duelist Strike"]
+                },
+                "G3": {
+                    "ce_max": 150,
+                    "ce_regen": 60,
+                    "additions": [
+                        {"attacks": {"Freeze Frame": 40}, "perks": []},
+                        {"attacks": {}, "perks": ["Steady Stance"]}
+                    ]
+                },
+                "G2": {
+                    "ce_max": 200,
+                    "ce_regen": 70,
+                    "additions": [
+                        {"attacks": {"Close the Distance": 60}, "perks": []},
+                        {"attacks": {"Snapshot": 70}, "perks": []}
+                    ]
+                },
+                "G1": {
+                    "ce_max": 250,
+                    "ce_regen": 85,
+                    "additions": [
+                        {"attacks": {}, "perks": ["The Fastest Sorcerer*"]},
+                        {"attacks": {}, "perks": ["Zenin Clan Head"]}
+                    ]
+                },
+                "SG": {
+                    "ce_max": 300,
+                    "ce_regen": 100,
+                    "additions": [
+                        {"attacks": {"Frame Cancel": 170}, "perks": []}
+                    ]
+                }
+            }
+        },
         "default": {
             "hp": 100,
             "move_points": 2,
