@@ -1102,7 +1102,7 @@ sorcerer_data: Dict[str, Dict] = {
                 }
             }
         },
-    "Naobito": { #WORK ON HEAD OF THE ZENIN CLANNNNNNNNNNNNNNNNN
+    "Naobito": {
             "hp": 100,
             "move_points": 2,
             "attack_points": 3,
@@ -2183,7 +2183,23 @@ class Sorcerer:
                 print(f"{self.name}: Binding Vow of Cursed Flow - Half CE regen ({regen})")
             self.cursed_flow_turns = (self.cursed_flow_turns % 6) + 1
         self.ce = min(self.ce + regen, self.ce_max)
-
+        if self.name == "Naobito":
+            if "Zenin Clan Head" in self.perks:
+                zenin_names = {"Naoya", "Toji", "Maki", "Seance Toji", "Megumi"}
+                for sorcerer in sorcerer_pool:
+                    if sorcerer.name in zenin_names:
+                        print(f"Is {sorcerer.name} within 2 tiles of Naobito? [y/n]")
+                        response = input()
+                        while 1:
+                            if response == "y":
+                                sorcerer.ce += 50
+                                print(f"{sorcerer.name} gains 50 CE.")
+                                break
+                            if response == "n":
+                                sorcerer.ce += 0
+                                break
+                            if response != "y" or "n":
+                                print("Error. Input 'y' or 'n'")
     def level_up(self) -> None:
         thresholds = {"G4": 16, "G3": 50, "G2": 90, "G1": 110}
         grades = ["G4", "G3", "G2", "G1", "SG"]
@@ -2394,7 +2410,7 @@ def manage_sorcerer_pool():
             "Yuji", "Hakari", "Nanami", "Gojo", "Todo", "Inumaki",
             "Choso", "Nobara", "Jogo", "Toji", "Dagon", "Panda",
             "Hanami", "Sukuna", "Mahito", "Geto", "Megumi", "Baghead",
-            "Kamo", "Teen Geto"
+            "Kamo", "Teen Geto", "Naoya", "Naobito"
 
         ]
         print("\nAvailable Sorcerers:")
