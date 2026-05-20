@@ -7,8 +7,9 @@ from typing import List, Dict, Optional
 special_grade_deck: List[str] = [
     "Toji (SG)", "Seance Toji (SG)", "Mahito (SG)", "Awakened Mahito (SG)",
     "Hanami (SG)", "Jogo (SG)", "Cursed Womb Dagon (SG)", "Evolved Dagon (SG)",
-    "Sukuna (SG)", "Gojo (SG)", "Todo (SG)", "Megumi (SG)", "Last Leg Megumi (SG)",
-    "Yuji (SG)", "Inumaki (SG)", "Geto (SG)", "Teen Geto (SG)", "Maki (SG)", "Jiro (SG)"
+    "Sukuna (SG)", "Teen Gojo (SG)", "Todo (SG)", "Megumi (SG)", "Last Leg Megumi (SG)",
+    "Yuji (SG)", "Inumaki (SG)", "Geto (SG)", "Teen Geto (SG)", "Maki (SG)", "Jiro (SG)",
+    "Utahime (SG)", "Naoya (SG)", "Kenjaku (SG)", "Gojo (SG)"
 ]
 
 xp_drops: Dict[str, int] = {
@@ -371,32 +372,32 @@ sorcerer_data: Dict[str, Dict] = {
             }
     },
     "Panda": {
-        "hp": 60,
+        "hp": 70,
         "move_points": 2,
         "attack_points": 2,
         "dodge_requirement": "5+",
         "grades": {
             "G4": {
                 "ce_max": 80,
-                "ce_regen": 25,
+                "ce_regen": 30,
                 "attacks": {"Heavy Blow": 25},  # Damage via IRL dice rolls
-                "perks": ["Soul Siblings", "Tank Evade"]  # Corrected perks
+                "perks": ["Soul Siblings", "Absolute Unit"]  # Corrected perks
             },
             "G3": {
                 "ce_max": 120,
-                "ce_regen": 35,
+                "ce_regen": 40,
                 "attacks": {"Heavy Blow": 25, "Fastball": 30},  # Damage via IRL dice rolls
                 "perks": ["Soul Siblings", "Tank Evade"]  # Corrected perks
             },
             "G2": {
                 "ce_max": 140,
-                "ce_regen": 50,
+                "ce_regen": 60,
                 "attacks": {"Heavy Blow": 25, "Fastball": 30, "Heavy Blow+": 25},  # Damage via IRL dice rolls
                 "perks": ["Soul Siblings", "Tank Evade", "Blast Entry"]  # Corrected perks
             },
             "G1": {
                 "ce_max": 170,
-                "ce_regen": 60,
+                "ce_regen": 70,
                 "attacks": {
                     "Heavy Blow": 25,
                     "Fastball": 30,
@@ -407,7 +408,7 @@ sorcerer_data: Dict[str, Dict] = {
             },
             "SG": {
                 "ce_max": 200,
-                "ce_regen": 70,
+                "ce_regen": 85,
                 "attacks": {
                     "Heavy Blow": 25,
                     "Fastball": 30,
@@ -421,7 +422,7 @@ sorcerer_data: Dict[str, Dict] = {
     "Megumi": {
         "hp": 80,
         "move_points": 3,
-        "attack_points": 2,
+        "attack_points": 3,
         "dodge_requirement": "5+",
         "grades": {
             "G4": {
@@ -531,36 +532,38 @@ sorcerer_data: Dict[str, Dict] = {
                 "ce_max": 120,
                 "ce_regen": 30,
                 "attacks": {"Disaster Tides": 30},  # Damage via IRL dice rolls
-                "perks": []
+                "perks": ["Butcher Budgeting"]
             },
             "G3": {
                 "ce_max": 175,
                 "ce_regen": 45,
-                "attacks": {"Disaster Tides": 30},  # Damage via IRL dice rolls
-                "perks": ["Disaster Metabolism"]
+                "additions": [
+                        {"attacks": {}, "perks": ["Disaster Metabolism"]},
+                        {"attacks": {"Wing Spread": 10}, "perks": []}
+                    ]
             },
             "G2": {
                 "ce_max": 215,
                 "ce_regen": 65,
-                "attacks": {"Disaster Tides": 30, "Evasive Strike": 65},  # Damage via IRL dice rolls
-                "perks": ["Disaster Metabolism"]
+                "additions": [
+                        {"attacks": {}, "perks": ["Mournful Vengeance"]},
+                        {"attacks": {}, "perks": ["Retaliation"]}
+                    ]
             },
             "G1": {
                 "ce_max": 250,
                 "ce_regen": 85,
-                "attacks": {"Disaster Tides": 30, "Evasive Strike": 65, "Slam Combo": 80},  # Damage via IRL dice rolls
-                "perks": ["Disaster Metabolism"]
+                "additions": [
+                        {"attacks": {"Slam Combo": 80}, "perks": []},
+                        {"attacks": {}, "perks": ["Necessity"]}
+                    ]
             },
             "SG": {
                 "ce_max": 350,
                 "ce_regen": 100,
-                "attacks": {
-                    "Disaster Tides": 30,
-                    "Evasive Strike": 65,
-                    "Slam Combo": 80,
-                    "Horizon of the Captivating Skandha": 300
-                },  # Damage via IRL dice rolls
-                "perks": ["Disaster Metabolism", "Death Swarm"]  # Death Swarm: Piranhas (1 damage/hit), Eels (1 damage/hit), Giant Isopod (3 damage/hit)
+                "additions": [
+                        {"attacks": {"Horizon of the Captivating Skandha": 300}, "perks": ["Death Swarm"]}
+                    ]
             }
         }
     },
@@ -573,15 +576,15 @@ sorcerer_data: Dict[str, Dict] = {
                 "G4": {
                     "ce_max": 120,
                     "ce_regen": 30,
-                    "attacks": {"Dismantle": 30},  # Damage via IRL dice rolls
+                    "attacks": {"Cleave": 30},  # Damage via IRL dice rolls
                     "perks": ["Butcher Budgeting"]
                 },
                 "G3": {
                     "ce_max": 175,
                     "ce_regen": 45,
                     "additions": [
-                        {"attacks": {"Cleave": 60}, "perks": []},
-                        {"attacks": {"Dismantle+": 50}, "perks": []}
+                        {"attacks": {"Point-Blank": 60}, "perks": []},
+                        {"attacks": {"Cleave+": 50}, "perks": []}
                     ]
                 },
                 "G2": {
@@ -713,65 +716,54 @@ sorcerer_data: Dict[str, Dict] = {
             }
         },
     "Hanami": {
-            "hp": 130,
+            "hp": 150,
             "move_points": 2,
             "attack_points": 2,
             "dodge_requirement": "5+",
             "grades": {
                 "G4": {
                     "ce_max": 80,
-                    "ce_regen": 25,
+                    "ce_regen": 30,
                     "attacks": {"Cursed Roots": 20},
-                    "perks": ["Tank Evade"]
+                    "perks": ["Absolute Unit"]
                 },
                 "G3": {
                     "ce_max": 120,
-                    "ce_regen": 35,
-                    "attacks": {
-                        "Cursed Roots": 20,
-                        "Wooden Wall": 40
-                    },
-                    "perks": ["Tank Evade"]
+                    "ce_regen": 40,
+                    "additions": [
+                        {"attacks": {"Root Bridge": 40}, "perks": []},
+                        {"attacks": {"Wooden Wall": 40}, "perks": []}
+                    ]
                 },
                 "G2": {
                     "ce_max": 140,
-                    "ce_regen": 50,
-                    "attacks": {
-                        "Cursed Roots": 20,
-                        "Wooden Wall": 40,
-                        "Root Bridge": 40
-                    },
-                    "perks": ["Tank Evade"]
+                    "ce_regen": 60,
+                    "additions": [
+                        {"attacks": {"Cursed Buds": 60}, "perks": []},
+                        {"attacks": {"Flower Field": 60}, "perks": []}
+                    ]
                 },
                 "G1": {
                     "ce_max": 170,
-                    "ce_regen": 60,
-                    "attacks": {
-                        "Cursed Roots": 20,
-                        "Wooden Wall": 40,
-                        "Root Bridge": 40,
-                        "Life Force Beam": 80
-                    },
-                    "perks": ["Tank Evade"]
+                    "ce_regen": 70,
+                    "additions": [
+                        {"attacks": {"Life Force Beam": 80}, "perks": []},
+                        {"attacks": {"Briars": 70}, "perks": []}
+                    ]
                 },
                 "SG": {
                     "ce_max": 200,
-                    "ce_regen": 70,
-                    "attacks": {
-                        "Cursed Roots": 20,
-                        "Wooden Wall": 40,
-                        "Root Bridge": 40,
-                        "Life Force Beam": 80,
-                        "Ceremonial Sea of Light": 200
-                    },
-                    "perks": ["Tank Evade"]
+                    "ce_regen": 85,
+                    "additions": [
+                        {"attacks": {"Ceremonial Sea of Light": 180}, "perks": []},
+                    ]
                 }
             }
         },
     "Mahito": {
         "hp": 60,
         "move_points": 3,
-        "attack_points": 2,
+        "attack_points": 3,
         "dodge_requirement": "5+",
         "grades": {
             "G4": {
@@ -783,44 +775,33 @@ sorcerer_data: Dict[str, Dict] = {
             "G3": {
                 "ce_max": 160,
                 "ce_regen": 50,
-                "attacks": {
-                    "Transfigured Human": 20,
-                    "Swift Slash": 50
-                },
-                "perks": ["Summoner Dodge"]
+                "additions": [
+                    {"attacks": {"Swift Slash": 50}, "perks": []},
+                    {"attacks": {"Decoy": 30}, "perks": []}
+                ]
             },
             "G2": {
                 "ce_max": 190,
                 "ce_regen": 65,
-                "attacks": {
-                    "Transfigured Human": 20,
-                    "Swift Slash": 50,
-                    "Polymorphic Soul Isomer": 50
-                },
-                "perks": ["Summoner Dodge", "Shape of the Soul"]
+                "additions": [
+                        {"attacks": {"Polymorphic Soul Isomer": 50}, "perks": []},
+                        {"attacks": {}, "perks": ["Shape of the Soul"]}
+                    ]
             },
             "G1": {
                 "ce_max": 230,
                 "ce_regen": 75,
-                "attacks": {
-                    "Transfigured Human": 20,
-                    "Swift Slash": 50,
-                    "Polymorphic Soul Isomer": 50,
-                    "Idle Transfiguration": 100
-                },
-                "perks": ["Summoner Dodge", "Shape of the Soul"]
+                "additions": [
+                        {"attacks": {"Idle Transfiguration": 100}, "perks": []},
+                        {"attacks": {"Soul Multiplicity": 70}, "perks": []}
+                    ]
             },
             "SG": {
                 "ce_max": 325,
                 "ce_regen": 90,
-                "attacks": {
-                    "Transfigured Human": 20,
-                    "Swift Slash": 50,
-                    "Polymorphic Soul Isomer": 50,
-                    "Idle Transfiguration": 100,
-                    "Domain Expansion: Self-Embodiment of Perfection": 275
-                },
-                "perks": ["Summoner Dodge", "Shape of the Soul"]
+                "additions": [
+                        {"attacks": {"Self-Embodiment of Perfection": 275}, "perks": []},
+                    ]
             }
         }
     },
@@ -833,44 +814,39 @@ sorcerer_data: Dict[str, Dict] = {
             "G4": {
                 "ce_max": 130,
                 "ce_regen": 30,
-                "attacks": {"Blood-Dipped Arrows": 20},
+                "attacks": {"Blood-Dipped Arrows": 15},
                 "perks": ["Ranger Rotation"]
             },
             "G3": {
                 "ce_max": 150,
                 "ce_regen": 40,
-                "attacks": {"Blood-Dipped Arrows": 20},
-                "perks": ["Ranger Rotation"]
+                "additions": [
+                        {"attacks": {"Blood Arrows+": 15}, "perks": []},
+                        {"attacks": {"Maim": 30}, "perks": []}
+                    ]
             },
             "G2": {
                 "ce_max": 200,
                 "ce_regen": 50,
-                "attacks": {
-                    "Blood-Dipped Arrows": 20,
-                    "Crimson Binding": 55
-                },
-                "perks": ["Ranger Rotation"]
+                "additions": [
+                        {"attacks": {"Crimson Binding": 55}, "perks": []},
+                        {"attacks": {}, "perks": ["Overwatch"]}
+                    ]
             },
             "G1": {
                 "ce_max": 250,
                 "ce_regen": 60,
-                "attacks": {
-                    "Blood-Dipped Arrows": 20,
-                    "Crimson Binding": 55,
-                    "Slicing Exorcism": 175
-                },
-                "perks": ["Ranger Rotation", "Overwatch"]
+                "additions": [
+                        {"attacks": {"Slicing Exorcism": 175}, "perks": []},
+                        {"attacks": {}, "perks": ["Return Fire"]}
+                    ]
             },
             "SG": {
                 "ce_max": 300,
                 "ce_regen": 90,
-                "attacks": {
-                    "Blood-Dipped Arrows": 20,
-                    "Crimson Binding": 55,
-                    "Slicing Exorcism": 175,
-                    "Flowing Red Scale": 250
-                },
-                "perks": ["Ranger Rotation", "Overwatch"]
+                "additions": [
+                        {"attacks": {"Flowing Red Scale": 250}, "perks": []}
+                    ]
             }
         }
     },
@@ -883,44 +859,39 @@ sorcerer_data: Dict[str, Dict] = {
                 "G4": {
                     "ce_max": 125,
                     "ce_regen": 50,
-                    "attacks": {"Cursed Tool Combat": 35},
-                    "perks": ["Duelist Strike", "Zero Cursed Signature"]
+                    "attacks": {"Cursed Tool Combat": 25},
+                    "perks": ["Duelist Strike"]
                 },
                 "G3": {
                     "ce_max": 150,
                     "ce_regen": 60,
-                    "attacks": {"Cursed Tool Combat": 35},
-                    "perks": ["Duelist Strike", "Zero Cursed Signature", "Blitz Attack"]
+                    "additions": [
+                    {"attacks": {"Disarm": 50}, "perks": []},
+                    {"attacks": {}, "perks": ["Zero Cursed Signature"]}
+                    ]
                 },
                 "G2": {
-                    "ce_max": 200,
-                    "ce_regen": 70,
-                    "attacks": {
-                        "Cursed Tool Combat": 35,
-                        "Disarm": 60
-                    },
-                    "perks": ["Duelist Strike", "Zero Cursed Signature", "Blitz Attack"]
+                "ce_max": 200,
+                "ce_regen": 70,
+                "additions": [
+                        {"attacks": {"Joint Assault": 50}, "perks": []},
+                        {"attacks": {}, "perks": ["Bullet Slice"]}
+                    ]
                 },
                 "G1": {
                     "ce_max": 250,
                     "ce_regen": 85,
-                    "attacks": {
-                        "Cursed Tool Combat": 35,
-                        "Disarm": 60,
-                        "Team Player Mindset": 75
-                    },
-                    "perks": ["Duelist Strike", "Zero Cursed Signature", "Blitz Attack"]
+                    "additions": [
+                        {"attacks": {"Playful Cloud Chain": 70}, "perks": []},
+                        {"attacks": {}, "perks": ["Preparations"]}
+                    ]
                 },
                 "SG": {
                     "ce_max": 300,
                     "ce_regen": 100,
-                    "attacks": {
-                        "Cursed Tool Combat": 35,
-                        "Disarm": 60,
-                        "Team Player Mindset": 75,
-                        "Rallying Cry": 150
-                    },
-                    "perks": ["Duelist Strike", "Zero Cursed Signature", "Blitz Attack"]
+                    "additions": [
+                        {"attacks": {"Rallying Cry": 225}, "perks": []}
+                    ]
                 }
             }
     },
@@ -941,7 +912,7 @@ sorcerer_data: Dict[str, Dict] = {
                     "ce_regen": 45,
                     "additions": [
                         {"attacks": {"Playful Cloud": 60}, "perks": []},
-                        {"attacks": {"9mm Pistol": 50}, "perks": []}
+                        {"attacks": {}, "perks": ["9mm Pistol"]}
                     ]
                 },
                 "G2": {
@@ -969,7 +940,7 @@ sorcerer_data: Dict[str, Dict] = {
                 }
             }
         },
-    "Nobara": { #NEEDS WORKkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+    "Nobara": { #Technically functional but sample system not established
             "hp": 75,
             "move_points": 3,
             "attack_points": 3,
@@ -1014,10 +985,10 @@ sorcerer_data: Dict[str, Dict] = {
                 }
             }
         },
-    "Teen Geto": { #NEEDS WORKkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+    "Teen Geto": { #Technically functional, but inventory not set up
         "hp": 80,
         "move_points": 3,
-        "attack_points": 2,
+        "attack_points": 3,
         "dodge_requirement": "5+",
         "grades": {
             "G4": {
@@ -1147,20 +1118,155 @@ sorcerer_data: Dict[str, Dict] = {
                 }
             }
         },
-        "default": {
-            "hp": 100,
+    "Revived Toji": {
+            "hp": 150,
             "move_points": 2,
             "attack_points": 2,
-            "dodge_requirement": "3+",
+            "dodge_requirement": "5+",
             "grades": {
-                "G4": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []},
-                "G3": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []},
-                "G2": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []},
-                "G1": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []},
-                "SG": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []}
+                "G4": {
+                    "ce_max": 80,
+                    "ce_regen": 30,
+                    "attacks": {"Hard Hit": 15},
+                    "perks": ["Absolute Unit"]
+                },
+                "G3": {
+                    "ce_max": 120,
+                    "ce_regen": 40,
+                    "additions": [
+                        {"attacks": {}, "perks": ["Target Locked"]},
+                        {"attacks": {"Rush": 40}, "perks": []}
+                    ]
+                },
+                "G2": {
+                    "ce_max": 140,
+                    "ce_regen": 60,
+                    "additions": [
+                        {"attacks": {}, "perks": ["Resilience"]},
+                        {"attacks": {"Defensive Leap": 70}, "perks": []}
+                    ]
+                },
+                "G1": {
+                    "ce_max": 170,
+                    "ce_regen": 70,
+                    "additions": [
+                        {"attacks": {"Playful Cloud": 50}, "perks": []},
+                        {"attacks": {"Parry Stance": 70}, "perks": []}
+                    ]
+                },
+                "SG": {
+                    "ce_max": 200,
+                    "ce_regen": 85,
+                    "additions": [
+                        {"attacks": {"The One Who Left it All Behind": 140}, "perks": []},
+                    ]
+                }
+            }
+        },
+    "Inumaki": {
+        "hp": 100,
+        "move_points": 2,
+        "attack_points": 4,
+        "dodge_requirement": "3+",
+        "grades": {
+            "G4": {
+                "ce_max": 110,
+                "ce_regen": 25,
+                "attacks": {"Evasive Maneuvers": 20},  # Damage via IRL dice rolls
+                "perks": ["Disruptor Defense"]
+            },
+            "G3": {
+                "ce_max": 200,
+                "ce_regen": 45,
+                "additions": [
+                    {"attacks": {"'Stop'": 35}, "perks": []},
+                    {"attacks": {"'Run Away'": 60}, "perks": []}
+                ]
+            },
+            "G2": {
+                "ce_max": 250,
+                "ce_regen": 85,
+                "additions": [
+                    {"attacks": {}, "perks": ["Curse Speech Mastery"]},
+                    {"attacks": {}, "perks": ["Cough Syrup"]}
+                ]
+            },
+            "G1": {
+                "ce_max": 300,
+                "ce_regen": 100,
+                "additions": [
+                    {"attacks": {"'Get Back'": 100}, "perks": []},
+                    {"attacks": {"'Help Me'": 100}, "perks": ["Reflex Boogie"]}
+                ]
+            },
+            "SG": {
+                "ce_max": 400,
+                "ce_regen": 130,
+                "additions": [
+                    {"attacks": {"'Explode'": 225}, "perks": []}
+                ]
             }
         }
+    },
+    "Kurourushi": {
+        "hp": 100,
+        "move_points": 3,
+        "attack_points": 3,
+        "dodge_requirement": "5+",
+        "grades": {
+            "G4": {
+                "ce_max": 120,
+                "ce_regen": 35,
+                "attacks": {"Transfigured Human": 20},
+                "perks": ["Summoner Dodge"]
+            },
+            "G3": {
+                "ce_max": 160,
+                "ce_regen": 50,
+                "additions": [
+                    {"attacks": {}, "perks": ["Roach Haste"]},
+                    {"attacks": {}, "perks": ["Roach Hunger"]}
+                ]
+            },
+            "G2": {
+                "ce_max": 190,
+                "ce_regen": 65,
+                "additions": [
+                        {"attacks": {"Earthen Insect Trance": 50}, "perks": []},
+                        {"attacks": {"Manual Manifestation": 45}, "perks": []}
+                    ]
+            },
+            "G1": {
+                "ce_max": 230,
+                "ce_regen": 75,
+                "additions": [
+                        {"attacks": {}, "perks": ["Roach Rush"]},
+                        {"attacks": {}, "perks": ["Cockroach Coverage"]}
+                    ]
+            },
+            "SG": {
+                "ce_max": 325,
+                "ce_regen": 90,
+                "additions": [
+                        {"attacks": {"Plague": 200}, "perks": []},
+                    ]
+            }
+        }
+    },
+    "default": {
+        "hp": 100,
+        "move_points": 2,
+        "attack_points": 2,
+        "dodge_requirement": "3+",
+        "grades": {
+            "G4": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []},
+            "G3": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []},
+            "G2": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []},
+            "G1": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []},
+             "SG": {"ce_max": 100, "ce_regen": 10, "attacks": {}, "perks": []}
+        }
     }
+}
 
 # ========================
 # === Sorcerer Class ===
@@ -1225,6 +1331,7 @@ class Sorcerer:
         self.kamo_red_scale_turns: int = 0  # Tracks turns remaining for Flowing Red Scale
         self.kamo_red_scale_cooldown: int = 0  # Tracks cooldown for Flowing Red Scale
         self.maki_rallying_cry()
+        self.transfigured_humans: int = 0
 
     def use_ranger_rotation(self) -> None:
         """Converts AP to MP at a 1:1 ratio for Rangers with the Ranger Rotation perk."""
@@ -1363,10 +1470,9 @@ class Sorcerer:
                           "2 damage per enemy movement or attack, +1 damage to Jogo’s attacks and residual fire. "
                           "Allies exempt from negative effects.")
                     return
-                if attack == "Horizon of the Captivating Skandha":
+                if attack == "Horizon of the Captivating Skandha": #MESSED UPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
                     if self.name != "Dagon" or self.grade != "SG":
-                        print(
-                            f"{self.name} cannot use Horizon of the Captivating Skandha (requires Dagon at Special Grade).")
+                        print(f"{self.name} cannot use Horizon of the Captivating Skandha (requires Dagon at Special Grade).")
                         return
                     if self.is_knocked_out:
                         print(f"{self.name} is knocked out and cannot act this turn.")
@@ -1377,19 +1483,47 @@ class Sorcerer:
                     cost = sorcerer_data[self.name]["grades"][self.grade]["attacks"][
                         "Horizon of the Captivating Skandha"]
                     if self.ce < cost:
-                        print(f"Not enough CE to use Horizon of the Captivating Skandha (need {cost}, have {self.ce}).")
+                        print("Was domain activated by the Necessity perk? (y/n)")
+                        answer = input()
+                        if answer == "y":
+                            if self.ce >= 150:
+                                self.ce -= 150
+                                self.dagon_domain_active = True
+                                self.dagon_domain_turns = 4
+                                self.attack_points_current -= 1
+                                self.ce = self.ce_max  # Set CE to max after cost deduction
+                                print(
+                                    f"{self.name} uses Horizon of the Captivating Skandha! -{cost} CE, CE reset to max (current: {self.ce}/{self.ce_max}), "
+                                    f"-1 attack point (current: {self.attack_points_current}/{self.attack_points}).")
+                                print("Domain active for 4 turns: CE at max, dodge requirement lowered to 2+, Death Swarm available, Disaster Metabolism deactivated. Closes if CE dips below 40.")
+                                return
+                            else:
+                                return
                         return
-                    self.ce -= cost
-                    self.dagon_domain_active = True
-                    self.dagon_domain_turns = 4
-                    self.attack_points_current -= 1
-                    self.ce = self.ce_max  # Set CE to max after cost deduction
-                    print(
-                        f"{self.name} uses Horizon of the Captivating Skandha! -{cost} CE, CE reset to max (current: {self.ce}/{self.ce_max}), "
-                        f"-1 attack point (current: {self.attack_points_current}/{self.attack_points}).")
-                    print("Domain active for 4 turns: CE at max, dodge requirement lowered to 2+, "
-                          "Death Swarm available, Disaster Metabolism deactivated. Closes if CE dips below 40.")
-                    return
+                    print("Was domain opened by the death of an ally with Mournful Vengeance perk? (y/n")
+                    answer = input()
+                    if answer == "y":
+                        self.dagon_domain_active = True
+                        self.dagon_domain_turns = 4
+                        self.attack_points_current -= 1
+                        self.ce = self.ce_max  # Set CE to max after cost deduction
+                        print(
+                            f"{self.name} uses Horizon of the Captivating Skandha! -{cost} CE, CE reset to max (current: {self.ce}/{self.ce_max}), "
+                            f"-1 attack point (current: {self.attack_points_current}/{self.attack_points}).")
+                        print(
+                            "Domain active for 4 turns: CE at max, dodge requirement lowered to 2+, Death Swarm available, Disaster Metabolism deactivated. Closes if CE dips below 40.")
+                        return
+                    else:
+                        self.ce -= cost
+                        self.dagon_domain_active = True
+                        self.dagon_domain_turns = 4
+                        self.attack_points_current -= 1
+                        self.ce = self.ce_max  # Set CE to max after cost deduction
+                        print(
+                            f"{self.name} uses Horizon of the Captivating Skandha! -{cost} CE, CE reset to max (current: {self.ce}/{self.ce_max}), "
+                            f"-1 attack point (current: {self.attack_points_current}/{self.attack_points}).")
+                        print("Domain active for 4 turns: CE at max, dodge requirement lowered to 2+, Death Swarm available, Disaster Metabolism deactivated. Closes if CE dips below 40.")
+                        return
                 if attack in ["Clone I", "Clone II", "Clone III", "Clone Maximum"] and self.name == "Baghead":
                     clone_counts = {"Clone I": 2, "Clone II": 3, "Clone III": 4, "Clone Maximum": 5}
                     target_count = clone_counts[attack]
@@ -2914,13 +3048,15 @@ def manage_sorcerer_pool():
                 elif action == "8":
                     selected.remove_ce()
                 elif action == "9":
-                    print("Sacrifice MP or AP?")
+                    print("Sacrifice MP or AP? Or FREE?")
                     sacrifice = input()
                     if sacrifice == "MP":
                         selected.move_points -= 1
                         selected.gain_ce()
                     elif sacrifice == "AP":
                         selected.attack_points_current -= 1
+                        selected.gain_ce()
+                    elif sacrifice == "FREE":
                         selected.gain_ce()
                     else:
                         print("Invalid input. Try again.")
