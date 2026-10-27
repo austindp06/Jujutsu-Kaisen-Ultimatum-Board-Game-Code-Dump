@@ -1467,7 +1467,7 @@ sorcerer_data: Dict[str, Dict] = {
             "G4": {
                 "ce_max": 110,
                 "ce_regen": 25,
-                "attacks": {"Rock Missile": 20},
+                "attacks": {"Rock Shot": 20},
                 "perks": ["Disruptor Defense"]
             },
             "G3": {
@@ -1503,6 +1503,53 @@ sorcerer_data: Dict[str, Dict] = {
             }
         }
     },
+    "Jinichi": {
+            "hp": 150,
+            "move_points": 2,
+            "attack_points": 2,
+            "sorcerer_type": "Tank",
+            "dodge_requirement": "5+",
+            "picture": "Pieces/Sorcerers/Hanami.png",
+            "grades": {
+                "G4": {
+                    "ce_max": 80,
+                    "ce_regen": 30,
+                    "attacks": {"Missile Fist": 0},
+                    "perks": ["Absolute Unit"]
+                },
+                "G3": {
+                    "ce_max": 120,
+                    "ce_regen": 40,
+                    "additions": [
+                        {"attacks": {"Backup Fist": 40}, "perks": []},
+                        {"attacks": {}, "perks": ["Hei's Retribution"]}
+                    ]
+                },
+                "G2": {
+                    "ce_max": 140,
+                    "ce_regen": 60,
+                    "additions": [
+                        {"attacks": {"Assisted Annihilation": 80}, "perks": []},
+                        {"attacks": {"Wide Slam": 65}, "perks": []}
+                    ]
+                },
+                "G1": {
+                    "ce_max": 170,
+                    "ce_regen": 70,
+                    "additions": [
+                        {"attacks": {}, "perks": ["Inspiration"]},
+                        {"attacks": {}, "perks": ["Motivation"]}
+                    ]
+                },
+                "SG": {
+                    "ce_max": 200,
+                    "ce_regen": 85,
+                    "additions": [
+                        {"attacks": {"Decimation": 200}, "perks": []},
+                    ]
+                }
+            }
+        },
     "default": {
         "hp": 100,
         "move_points": 2,
@@ -2307,6 +2354,23 @@ class Sorcerer:
                         else:
                             print("Momentum does not boost damage.")
                     print(f"Hailstorm deals {damage} damage! Three consecutive hailstorms on a single target stun!")
+                if attack == "Counterstrike":
+                    ask = input("Call a number (1-6): ")
+                    if ask == 1 or 3 or 5:
+                        number = 1
+                    else:
+                        number = 0
+                    check = random.randint(1, 6)
+                    if check != ask:
+                        print("Naoya deflects the attack! No damage incurred.")
+                        if check == 1 or 3 or 5:
+                            check = 1
+                        else:
+                            check = 0
+                        if check == number:
+                            print("Enemy framed! Next attack directed at them next turn can't be dodged!")
+                    else:
+                        print("Attack still lands.")
                 if attack == "Charge Up":
                     if self.attack_points_current < 0:
                         print(f"{self.name} has no attack points remaining this turn.")
@@ -3732,7 +3796,7 @@ class Sorcerer:
             self.cursed_flow_turns = (self.cursed_flow_turns % 6) + 1
         self.ce = min(self.ce + regen, self.ce_max)
         if "Zenin Clan Head" in self.perks:
-            zenin_names = {"Naoya", "Toji", "Maki", "Seance Toji", "Megumi", "Chojuro"}
+            zenin_names = {"Naoya", "Toji", "Maki", "Seance Toji", "Megumi", "Chojuro", "Jinichi"}
             for sorcerer in sorcerer_pool:
                 if sorcerer.name in zenin_names:
                     print(f"Is {sorcerer.name} within 2 tiles of Naobito? [y/n]")
